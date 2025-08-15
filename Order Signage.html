@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Order Management - Modern Interface&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: -50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: -50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 200%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 200%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: float 6s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes float {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translate(0, 0) rotate(0deg); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: translate(-20px, -20px) rotate(180deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glass-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(20px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.glass-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-grid {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-input, .form-select {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-input:focus, .form-select:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-input::placeholder {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.section-title::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #ff6b6b, #ff8e53);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px 32px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: -100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: left 0.5s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:hover::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-3px) scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-1px) scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-secondary:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 30px rgba(78, 205, 196, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 142, 83, 0.1) 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 107, 107, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(20px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-row {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-row:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 2px solid rgba(255, 107, 107, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-value {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.summary-total {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(20px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table th {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 107, 107, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table td {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table tr:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.05);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.delete-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 59, 48, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff3b30;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 59, 48, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.delete-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 59, 48, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.05);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-item:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.08);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(5px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: rgba(255, 107, 107, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-checkbox {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>appearance: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid rgba(255, 255, 255, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-checkbox:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 107, 107, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-checkbox:checked {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #ff6b6b, #ff8e53);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-checkbox:checked::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '✓';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translate(-50%, -50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-label:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.addon-price {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.no-data {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 255, 255, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.form-grid {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.glass-card {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.table-container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>overflow-x: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.loading-animation {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid rgba(255, 255, 255, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top-color: #ff6b6b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: spin 1s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes spin {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { transform: rotate(360deg); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;PK CENTER ORDER &lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;ระบบบันทึกข้อมูลการสั่งซื้อ&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Order Form --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="glass-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>📝 ข้อมูลลูกค้า</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="customerName" class="form-label"&gt;ชื่อลูกค้า&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="customerName" class="form-input" placeholder="ชื่อ-นามสกุล"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="customerPhone" class="form-label"&gt;เบอร์โทร&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="tel" id="customerPhone" class="form-input" placeholder="08x-xxx-xxxx"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="customerLine" class="form-label"&gt;LINE ID&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="customerLine" class="form-input" placeholder="line_id"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="orderDate" class="form-label"&gt;วันสั่ง&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="date" id="orderDate" class="form-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="pickupDate" class="form-label"&gt;วันนัดรับงาน&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="date" id="pickupDate" class="form-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Product Info --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="glass-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>🛍️ รายละเอียดสินค้า</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="productGroup" class="form-label"&gt;กลุ่มสินค้า&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="productGroup" class="form-select"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value=""&gt;-- เลือกกลุ่มสินค้า --&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="productCategory" class="form-label"&gt;Category&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="productCategory" class="form-select" disabled&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;option value=""&gt;-- กรุณาเลือกกลุ่มสินค้าก่อน --&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="sku" class="form-label"&gt;รหัสวัสดุ (SKU)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="text" id="sku" class="form-input" readonly style="background: rgba(255, 255, 255, 0.05);"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="unitPrice" class="form-label"&gt;ราคาต่อหน่วย (บาท)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="number" id="unitPrice" class="form-input" min="0" placeholder="0.00"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label for="quantity" class="form-label"&gt;จำนวนที่สั่ง&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;input type="number" id="quantity" class="form-input" value="1" min="1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Add-ons Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="addOnsContainer" class="hidden" style="margin-top: 30px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>✨ Add-on Options</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="addOnsContent" class="addon-container"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Financial Section --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>💰 การชำระเงิน</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="form-grid" style="grid-template-columns: 1fr 1fr;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="paidAmount" class="form-label"&gt;จ่ายแล้ว (บาท)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="paidAmount" class="form-input" placeholder="0.00" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="depositAmount" class="form-label"&gt;มัดจำ (บาท)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="depositAmount" class="form-input" placeholder="0.00" value="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="stockUsed" class="form-label"&gt;สต็อควัสดุที่ใช้ไป&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="stockUsed" class="form-input" placeholder="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="stockRemaining" class="form-label"&gt;สต็อควัสดุที่คงเหลือ&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="stockRemaining" class="form-input" placeholder="0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Summary Card --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="summary-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>📊 สรุปยอดเงิน</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="summary-label"&gt;ยอดรวมเงิน (ก่อน VAT)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="subtotal" class="summary-value"&gt;0.00 ฿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="summary-label"&gt;ภาษี 7%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="vat" class="summary-value"&gt;0.00 ฿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="summary-label"&gt;ยอดรวมราคาสินค้า&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="total" class="summary-total"&gt;0.00 ฿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="summary-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="summary-label" style="color: #ff3b30; font-weight: 600;"&gt;คงเหลือค้างจ่าย&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="balance" class="summary-value" style="color: #ff3b30; font-size: 1.5rem; font-weight: 700;"&gt;0.00 ฿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Action Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="text-align: center; margin-bottom: 40px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="addOrderBtn" class="btn"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;➕ เพิ่มรายการสั่งซื้อ&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Orders Table --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="glass-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="section-title"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>📋 รายการทั้งหมด</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button id="exportCsvBtn" class="btn btn-secondary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>📥 Export CSV</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="table-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;table class="table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;ชื่อลูกค้า&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;วันสั่ง&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;กลุ่มสินค้า&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;Category&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;จำนวน&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;ยอดรวมสินค้า (฿)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;คงเหลือ (฿)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th&gt;จัดการ&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tbody id="ordersTableBody"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;td colspan="8" class="no-data"&gt;ยังไม่มีข้อมูล...&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- DATA SOURCE ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const productData = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"ตัดสติ๊กเกอร์": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"อักษร": { sku: "STL" }, "open-close": { sku: "STopen" }, "ติดกระจก เดี่ยว 1.2x2 เมตร": { sku: "STdisplayS" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ติดกระจก คู่ 3x2 เมตร": { sku: "STdisplayM" }, "ก้าว บังสายตา": { sku: "STF" }, "ป้ายตู้น้ำมัน": { sku: "ST3M" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"3M": { sku: "ST3M" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"ฉลากสินค้า": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"matt": { sku: "LBmatt" }, "gloss": { sku: "LBgloss" }, "clear": { sku: "LBclear" }, "craft": { sku: "LBcraft" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"frost": { sku: "LBfrost" }, "pearl": { sku: "LBpearl" }, "gold": { sku: "LBgold" }, "silver": { sku: "LBsilver" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"chrome": { sku: "LBchrome" }, "paper": { sku: "LBpaper" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"เมนูอาหาร": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"พลาสวูด ด้านเดียว": { sku: "PM1x", price: 250 }, "พลาสวูด สองด้าน": { sku: "PM2x", price: 350 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"box 3fold": { sku: "AM", price: 60 }, "table tent": { sku: "AM", price: 60 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ปรินท์เคลือบ A4 ด้านเดียว": { sku: "A4M1x", price: 100 }, "ปรินท์เคลือบ A3 ด้านเดียว": { sku: "A3M1x", price: 150 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ปรินท์เคลือบ A4 สองด้าน": { sku: "A4M2x", price: 200 }, "ปรินท์เคลือบ A3 สองด้าน": { sku: "A3M2x", price: 300 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"เล่มสันเกลียว A4 เฉพาะเนื้อใน": { sku: "BM", price: 70, addOns: { "สันเหล็ก": 80 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"เล่มพลาสติกล้วน A4 เฉพาะเนื้อใน": { sku: "EkonM", price: 80, addOns: { "booklet แม็คกลาง": 20, "ปกแข็ง หมุดโลหะ 3 ตัว": 500, "กระดาน clipboard": 200 } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"ป้ายไฟ": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"กล่องกลม 60 cm": { sku: "RL1", price: 3500 }, "กล่องกลม 120 cm": { sku: "RL2", price: 7500 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"กล่องเหลี่ยม 60cm": { sku: "SL1", price: 3500 }, "กล่องเหลี่ยม 120cm": { sku: "SL2", price: 7500 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"กล่อง custom": { sku: "CL", price: 15000 }, "neon flex": { sku: "NEON", price: 7500 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"กราฟิกดีไซน์": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"CI": { price: 10000 }, "LG": { price: 3000 }, "CH": { price: 2500 }, "FAC": { price: 5000 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"COver": { price: 1000 }, "BOOK": { price: 5000 }, "PORTfolio": { price: 3000 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"PAckaging": { price: 2000 }, "POSter": { price: 2000 }, "BRochoure": { price: 1000 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"ปรินท์": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Envelope ขาวดำ": { sku: "ENbw", price: 3 }, "Envelope สี": { sku: "ENcolor", price: 5 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"card ด้านเดียว 4x6": { sku: "1C4x6", price: 6, addOns: { "เคลือบลามิเนต": 3 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"card ด้านเดียว 5x7": { sku: "1C5x7", price: 8, addOns: { "เคลือบลามิเนต": 4 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"card สองด้าน 4x6": { sku: "2C4x6", price: 11, addOns: { "เคลือบลามิเนต": 4 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"card สองด้าน 5x7": { sku: "2C5x7", price: 15, addOns: { "เคลือบลามิเนต": 5 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ใบปลิว leaflet": { sku: "LL" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"poster": { sku: "POP", addOns: { "เคลือบลามิเนต": 20 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"NAMECARD": { sku: "NC", addOns: { "เคลือบลามิเนต": 100 } },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"plastic namecard": { sku: "PLC" }, "premium namecard": { sku: "PRC" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"foil namecard": { sku: "FoilC", addOns: { "เคลือบลามิเนต": 400 } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"อคริลิค": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"โล่อคริลิค": { sku: "MC" }, "Keychain": { sku: "AC" }, "house name": { sku: "AC" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"shop logo": { sku: "AC" }, "Paymet sign": { sku: "AC" }, "gift sign": { sku: "AC" },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"nail &amp; lash sign": { sku: "AC" }, "frame": { sku: "AC" }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>"ป้ายและบอร์ด": {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ADS ขาว": { sku: "ADw", price: 550 }, "ADS ใส": { sku: "ADc", price: 550 }, "ADS ตู้ไฟ": { sku: "ADled", price: 1200 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ADS C2": { sku: "C2", price: 900 }, "photo": { sku: "PHO", price: 650 }, "PVC หลังขาว": { sku: "PVCw", price: 700 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"PVC หลังเทา": { sku: "PVCg", price: 850 }, "BackLIT film": { sku: "BLIT", price: 1000 }, "ผ้า IT": { sku: "ADIT", price: 650 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ไวนีล": { sku: "VN", price: 250 }, "บอร์ดพลาสวูด 5 มิล": { sku: "PW5mil", price: 1000 }, "บอร์ดพลาสวูด 3 มิล": { sku: "PW3mil", price: 900 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"บอร์ด โฟม": { sku: "FOB", price: 850 }, "บอร์ด ฟิวเจอร์บอร์ด": { sku: "FUB", price: 750 }, "บอร์ด อคริลิค": { sku: "ACB", price: 1500 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"CANVAS พร้อมกรอบ": { sku: "canv", price: 450 }, "X-stand PP 60 180": { sku: "Xpp60", price: 1290 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"X-stand PP 80 200": { sku: "Xpp80", price: 1490 }, "X-stand VN 60 180": { sku: "Xvn60", price: 650 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"X-stand VN 80 200": { sku: "Xvn80", price: 850 }, "Roll up 60 180": { sku: "Roll60", price: 1390 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Roll up 80 200": { sku: "Roll80", price: 1690 }, "J flag ไม่รวมขา": { sku: "FL650", price: 650 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"J flag รวมขา": { sku: "FL1090", price: 1090 }, "standie S": { sku: "STAs", price: 350 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"standie ขาฟิว M": { sku: "STAm", price: 650 }, "standie ขาฟิว L": { sku: "STAl", price: 1200 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"standie ขาฟิว XL": { sku: "STAxl", price: 1750 }, "Standie ขาเหล็ก หน้าฟิว": { sku: "STAfu", price: 1450 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"Standie ขาเหล็ก หน้าพลาสวูด": { sku: "STApw", price: 1950 }, "ป้ายคาเฟ่": { sku: "cafe", price: 2500 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ป้ายโครงงาน 3 พับ": { sku: "PROJ", price: 3500 }, "ป้ายพร็อบถ่ายรูป": { sku: "PROP", price: 250 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ติดตู้ไอติม": { sku: "ITIM", price: 6500 }, "ติดบูธ": { sku: "BOOTH", price: 10000 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"ไวนีล 4 pass": { sku: "VN4p", price: 350 }, "ไวนีล 6 pass": { sku: "VN6p", price: 450 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addOns: { "เคลือบกัน UV": 400, "ติดตั้ง บอร์ด (กาวตะปูติดผนัง)": 300, "โครงแบ็คดรอป 2x2 เมตร": 4000, "โครงและขึ้งอาคาร 1 คู่หา": 14000, "ขึ้งโครงเหล็ก (รีเวท ต่อ เมตร)": 1000, "โครงเหล็ก+ขึ้งบนชายคา 1x4 เมตร": 6000 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- DOM ELEMENTS ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const form = document.getElementById('orderForm');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const groupSelect = document.getElementById('productGroup');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const categorySelect = document.getElementById('productCategory');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const skuInput = document.getElementById('sku');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const unitPriceInput = document.getElementById('unitPrice');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const quantityInput = document.getElementById('quantity');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addOnsContainer = document.getElementById('addOnsContainer');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addOnsContent = document.getElementById('addOnsContent');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const paidInput = document.getElementById('paidAmount');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const depositInput = document.getElementById('depositAmount');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addOrderBtn = document.getElementById('addOrderBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ordersTableBody = document.getElementById('ordersTableBody');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const exportCsvBtn = document.getElementById('exportCsvBtn');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Summary fields</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const subtotalEl = document.getElementById('subtotal');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const vatEl = document.getElementById('vat');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalEl = document.getElementById('total');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const balanceEl = document.getElementById('balance');</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let orders = [];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- FUNCTIONS ---</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Populate Product Group dropdown</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function populateGroups() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>groupSelect.innerHTML = '&lt;option value=""&gt;-- เลือกกลุ่มสินค้า --&lt;/option&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (const group in productData) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>option.value = group;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>option.textContent = group;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>groupSelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Update Category dropdown based on selected Group</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateCategories() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const selectedGroup = groupSelect.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>categorySelect.innerHTML = '&lt;option value=""&gt;-- เลือก Category --&lt;/option&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resetProductDetails();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (selectedGroup &amp;&amp; productData[selectedGroup]) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>categorySelect.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const categories = productData[selectedGroup];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (const category in categories) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (category !== 'addOns') { // Exclude group-level addOns</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const option = document.createElement('option');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>option.value = category;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>option.textContent = category;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>categorySelect.appendChild(option);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>categorySelect.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Update SKU, Price, and Add-ons based on selected Category</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateProductDetails() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const group = groupSelect.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const category = categorySelect.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resetProductDetails();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (group &amp;&amp; category &amp;&amp; productData[group] &amp;&amp; productData[group][category]) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const details = productData[group][category];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>skuInput.value = details.sku || '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>unitPriceInput.value = details.price || 0;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Handle add-ons</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const categoryAddOns = details.addOns;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const groupAddOns = productData[group].addOns;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const allAddOns = { ...categoryAddOns, ...groupAddOns };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (allAddOns &amp;&amp; Object.keys(allAddOns).length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>addOnsContainer.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>addOnsContainer.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>addOnsContent.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (const name in allAddOns) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const price = allAddOns[name];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const addOnDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addOnDiv.className = 'addon-item';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addOnDiv.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label class="addon-label"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;input type="checkbox" class="addon-checkbox" name="addon" value="${price}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span&gt;${name}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="addon-price"&gt;+${price.toLocaleString()} ฿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addOnsContent.appendChild(addOnDiv);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.querySelectorAll('.addon-checkbox').forEach(cb =&gt; cb.addEventListener('change', calculateTotals));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>calculateTotals();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Reset product-specific fields</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetProductDetails() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>skuInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>unitPriceInput.value = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addOnsContainer.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addOnsContainer.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addOnsContent.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Calculate all financial values</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculateTotals() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const price = parseFloat(unitPriceInput.value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const qty = parseInt(quantityInput.value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const paid = parseFloat(paidInput.value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const deposit = parseFloat(depositInput.value) || 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let addOnCost = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.addon-checkbox:checked').forEach(checkbox =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addOnCost += parseFloat(checkbox.value);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const subtotal = (price * qty) + addOnCost;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const vat = subtotal * 0.07;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const total = subtotal + vat;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const balance = total - paid - deposit;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>subtotalEl.textContent = `${subtotal.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ฿`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>vatEl.textContent = `${vat.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ฿`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalEl.textContent = `${total.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ฿`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>balanceEl.textContent = `${balance.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ฿`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Render the orders table</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderTable() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ordersTableBody.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (orders.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ordersTableBody.innerHTML = `&lt;tr&gt;&lt;td colspan="8" class="no-data"&gt;ยังไม่มีข้อมูล...&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>orders.forEach((order, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const row = document.createElement('tr');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>row.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${order['ชื่อลูกค้า']}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${order['วันสั่ง']}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${order['กลุ่มสินค้า']}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${order['Category']}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${order['จำนวนที่ลูกค้าสั่ง']}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${parseFloat(order['ยอดรวมราคาสินค้า']).toLocaleString('th-TH', { minimumFractionDigits: 2 })}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td style="color: #ff3b30; font-weight: 600;"&gt;${parseFloat(order['คงเหลือค้างจ่าย']).toLocaleString('th-TH', { minimumFractionDigits: 2 })}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="delete-btn" onclick="deleteOrder(${index})"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>🗑️ ลบ</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ordersTableBody.appendChild(row);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.deleteOrder = (index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (confirm('คุณต้องการลบรายการนี้ใช่หรือไม่?')) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>orders.splice(index, 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderTable();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Add a new order</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addOrder() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Validation</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!document.getElementById('customerName').value || !groupSelect.value || !categorySelect.value) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert('กรุณากรอกข้อมูลลูกค้า กลุ่มสินค้า และ Category ให้ครบถ้วน');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let addOnCost = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let addOnDetails = [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.addon-checkbox:checked').forEach(checkbox =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addOnCost += parseFloat(checkbox.value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const label = checkbox.parentElement.querySelector('span').textContent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addOnDetails.push(label);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const price = parseFloat(unitPriceInput.value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const qty = parseInt(quantityInput.value) || 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const paid = parseFloat(paidInput.value) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const deposit = parseFloat(depositInput.value) || 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const subtotal = (price * qty) + addOnCost;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const vat = subtotal * 0.07;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const total = subtotal + vat;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const balance = total - paid - deposit;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const order = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ชื่อลูกค้า': document.getElementById('customerName').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'เบอร์โทร': document.getElementById('customerPhone').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ไลน์': document.getElementById('customerLine').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'วันสั่ง': document.getElementById('orderDate').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'วันนัดรับงาน': document.getElementById('pickupDate').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'กลุ่มสินค้า': groupSelect.value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Category': categorySelect.value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ราคาต่อหน่วย': price,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'จำนวนที่ลูกค้าสั่ง': qty,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Add-on Cost': addOnCost,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Add-on Details': addOnDetails.join(', '),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ยอดรวมเงิน': subtotal.toFixed(2),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ภาษี 7%': vat.toFixed(2),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'ยอดรวมราคาสินค้า': total.toFixed(2),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'จ่ายแล้ว': paid,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'มัดจำ': deposit,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'คงเหลือค้างจ่าย': balance.toFixed(2),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'รหัสวัสดุ': skuInput.value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'สต็อควัสดุที่ใช้ไป': document.getElementById('stockUsed').value,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'สต็อควัสดุที่คงเหลือ': document.getElementById('stockRemaining').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>orders.push(order);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderTable();</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Reset form fields but keep customer info</p>
+<p class="p1"><span class="Apple-converted-space">        </span>categorySelect.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>unitPriceInput.value = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>quantityInput.value = 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>paidInput.value = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>depositInput.value = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('stockUsed').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('stockRemaining').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateProductDetails(); // This will clear SKU and add-ons</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Success feedback</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addOrderBtn.innerHTML = '&lt;span&gt;✅ เพิ่มสำเร็จ!&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addOrderBtn.innerHTML = '&lt;span&gt;➕ เพิ่มรายการสั่งซื้อ&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Export data to CSV</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exportToCSV() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (orders.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert('ไม่มีข้อมูลสำหรับ Export');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const headers = Object.keys(orders[0]);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const csvRows = [headers.join(',')];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>orders.forEach(order =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const values = headers.map(header =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const escaped = ('' + order[header]).replace(/"/g, '""');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return `"${escaped}"`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>csvRows.push(values.join(','));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const csvString = csvRows.join('\n');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const blob = new Blob([`\uFEFF${csvString}`], { type: 'text/csv;charset=utf-8;' }); // Add BOM for Excel</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const a = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.setAttribute('hidden', '');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.setAttribute('href', url);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.setAttribute('download', `orders_${new Date().toISOString().slice(0,10)}.csv`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.body.appendChild(a);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.click();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.body.removeChild(a);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Success feedback</p>
+<p class="p1"><span class="Apple-converted-space">        </span>exportCsvBtn.innerHTML = '&lt;span&gt;✅ Export สำเร็จ!&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>exportCsvBtn.innerHTML = '&lt;span&gt;📥 Export CSV&lt;/span&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- EVENT LISTENERS ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>groupSelect.addEventListener('change', updateCategories);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>categorySelect.addEventListener('change', updateProductDetails);</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Add listeners to all inputs that affect calculation</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const calculationInputs = [unitPriceInput, quantityInput, paidInput, depositInput];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>calculationInputs.forEach(input =&gt; input.addEventListener('input', calculateTotals));</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>addOrderBtn.addEventListener('click', addOrder);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>exportCsvBtn.addEventListener('click', exportToCSV);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- INITIALIZATION ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>populateGroups();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Set default order date to today</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const today = new Date().toISOString().slice(0, 10);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('orderDate').value = today;</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
